@@ -1,1 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Page</title>
+  <script>
+    function validateForm() {
+      var firstName = document.forms["registrationForm"]["firstname"].value;
+      var lastName = document.forms["registrationForm"]["lastname"].value;
+      var email = document.forms["registrationForm"]["email"].value;
+      var dob = document.forms["registrationForm"]["dob"].value;
+      var mobile = document.forms["registrationForm"]["mobile"].value;
+      var userType = document.forms["registrationForm"]["userType"].value;
+      var balance = document.forms["registrationForm"]["balance"].value;
 
+      // Validation checks (you can modify them as per your requirements)
+      if (firstName == "" || lastName == "" || email == "" || dob == "" || mobile == "" || userType == "" || balance == "") {
+        alert("Please fill in all fields");
+        return false;
+      }
+      
+      if (!validateEmail(email)) {
+        alert("Please enter a valid email address");
+        return false;
+      }
+      
+      if (!validateMobile(mobile)) {
+        alert("Please enter a valid mobile number");
+        return false;
+      }
+      
+      return true;
+    }
+
+    function validateEmail(email) {
+      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailPattern.test(email);
+    }
+
+    function validateMobile(mobile) {
+      var mobilePattern = /^\d{10}$/;
+      return mobilePattern.test(mobile);
+    }
+  </script>
+</head>
+<body>
+  <h2>Registration Page</h2>
+  <form name="registrationForm" onsubmit="return validateForm()">
+    <label for="firstname">First Name:</label>
+    <input type="text" id="firstname" name="firstname" required><br><br>
+
+    <label for="lastname">Last Name:</label>
+    <input type="text" id="lastname" name="lastname" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" required><br><br>
+
+    <label for="mobile">Mobile:</label>
+    <input type="tel" id="mobile" name="mobile" required><br><br>
+
+    <label for="userType">User Type:</label>
+    <input type="text" id="userType" name="userType" required><br><br>
+
+    <label for="balance">Balance:</label>
+    <input type="number" id="balance" name="balance" required><br><br>
+
+    <input type="submit" value="Register">
+  </form>
+</body>
+</html>
