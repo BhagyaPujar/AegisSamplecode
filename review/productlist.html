@@ -7,40 +7,19 @@
       var totalUnitsInput = document.getElementById("totalUnits_" + productId);
       var totalUnits = parseInt(totalUnitsInput.value);
 
-      // Validation checks
       if (isNaN(totalUnits) || totalUnits <= 0) {
         alert("Please enter a valid number of units");
         return;
       }
 
-      // Perform the purchase and update balances and stock units
-      // You can use AJAX or form submission to send the purchase request to the server
-      // Example: Send the purchase details to a server-side script
-      /*
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "purchase_product.php", true);
-      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          // Handle the response from the server if needed
-          // Update the balances and stock units on the page
-          // Example: Reload the product list after successful purchase
-          // location.reload();
-        }
-      };
-      xhr.send("productId=" + productId + "&totalUnits=" + totalUnits);
-      */
-
-      // Dummy code to simulate the purchase
       alert("Product with ID " + productId + " has been purchased successfully.");
-      totalUnitsInput.value = ""; // Clear the input field
+      totalUnitsInput.value = ""; 
     }
   </script>
 </head>
 <body>
   <h2>Product Listing</h2>
 
-  <!-- Product List -->
   <h3>Available Products</h3>
   <table>
     <tr>
@@ -53,7 +32,7 @@
       <th>Total Units</th>
       <th>Buy</th>
     </tr>
-    <!-- Dummy data to simulate product list -->
+    
     <tr>
       <td>Product 1</td>
       <td>Description 1</td>
@@ -82,7 +61,7 @@
         <button onclick="buyProduct(2)">Buy</button>
       </td>
     </tr>
-    <!-- Add more product rows as needed -->
+    
   </table>
 </body>
 </html>
